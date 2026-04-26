@@ -1,0 +1,51 @@
+# Environment & secrets
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+server.log
+server_err.log
+frontend.log
+frontend_err.log
+fix_urls.log
+fix_urls_err.log
+
+# Generated reports/PDFs
+reports/
+
+# Debug / scratch files
+*.html
+reelly_*.png
+step*.png
+check_reelly_urls.py
+debug_*.py
+find_project_url.py
+fix_*.py
+migrate_*.py
+test_*.py
+
+# OS
+.DS_Store
+Thumbs.db
