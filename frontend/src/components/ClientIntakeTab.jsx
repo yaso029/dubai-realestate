@@ -60,7 +60,7 @@ export default function ClientIntakeTab() {
     setGenerating(true);
     setGenError(null);
     try {
-      const saveRes = await fetch('http://localhost:8000/intake/form/save', {
+      const saveRes = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ form_data: data }),
@@ -68,7 +68,7 @@ export default function ClientIntakeTab() {
       if (!saveRes.ok) throw new Error('Failed to save form data');
       const { session_id } = await saveRes.json();
 
-      const pdfRes = await fetch('http://localhost:8000/intake/form/generate-report', {
+      const pdfRes = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/generate-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id }),

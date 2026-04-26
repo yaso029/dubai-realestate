@@ -1,4 +1,4 @@
-const BASE = "http://localhost:8000";
+const BASE = "https://dubai-realestate-production.up.railway.app";
 
 export async function fetchStats() {
   const r = await fetch(`${BASE}/listings/stats`);

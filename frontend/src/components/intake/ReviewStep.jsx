@@ -83,7 +83,7 @@ export default function ReviewStep({ data, onGoTo, onGenerate, generating }) {
     setEmailStatus(null);
     try {
       // Save form first
-      const saveRes = await fetch('http://localhost:8000/intake/form/save', {
+      const saveRes = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ form_data: data }),
@@ -92,7 +92,7 @@ export default function ReviewStep({ data, onGoTo, onGenerate, generating }) {
       const { session_id } = await saveRes.json();
       setLastSessionId(session_id);
 
-      const res = await fetch('http://localhost:8000/intake/form/send-email', {
+      const res = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id, recipient_email: emailTo }),

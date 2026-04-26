@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { matchListings } from "../api";
 
-const BASE = "http://localhost:8000";
+const BASE = "https://dubai-realestate-production.up.railway.app";
 
 function fmtPrice(p) {
   if (!p) return "—";

@@ -35,7 +35,7 @@ export default function AISidebar({ step }) {
     setMessages(prev => [...prev, { role: 'user', text: q }]);
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/intake/form/ai-chat', {
+      const res = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/ai-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: q, step }),

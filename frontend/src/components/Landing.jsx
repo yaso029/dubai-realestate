@@ -113,7 +113,7 @@ export default function Landing({ onEnter }) {
   const [count, setCount] = useState({ secondary: 0, offplan: 0, avg: 0 });
 
   useEffect(() => {
-    fetch("http://localhost:8000/listings/stats")
+    fetch("https://dubai-realestate-production.up.railway.app/listings/stats")
       .then((r) => r.json())
       .then((d) => {
         animateCount("secondary", d.secondary_total || 0);
