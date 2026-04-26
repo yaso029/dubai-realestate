@@ -1,0 +1,6 @@
+requirements.txt
+backend/
+nixpacks.toml
+railway.json
+*.py
+*.db
