@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { NAVY, GOLD } from './ui';
+const API = import.meta.env.VITE_API_URL || 'https://dubai-realestate-production.up.railway.app';
+const NAVY = '#111111';
+const GOLD = '#111111';
 
 const STEP_TIPS = {
   1:  { icon: '💰', tip: "Investment properties in Dubai enjoy 0% income tax on rental income and 0% capital gains tax." },
@@ -35,7 +37,7 @@ export default function AISidebar({ step }) {
     setMessages(prev => [...prev, { role: 'user', text: q }]);
     setLoading(true);
     try {
-      const res = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/ai-chat', {
+      const res = await fetch(`${API}/intake/form/ai-chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: q, step }),

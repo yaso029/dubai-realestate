@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { matchListings } from "../api";
 
-const BASE = "https://dubai-realestate-production.up.railway.app";
+const BASE = import.meta.env.VITE_API_URL || "https://dubai-realestate-production.up.railway.app";
 
 function fmtPrice(p) {
   if (!p) return "—";

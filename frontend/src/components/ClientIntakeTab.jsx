@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+const API = import.meta.env.VITE_API_URL || 'https://dubai-realestate-production.up.railway.app';
 import { NAVY, GOLD } from './intake/ui';
 import WelcomeStep from './intake/WelcomeStep';
 import ContactStep from './intake/ContactStep';
@@ -60,7 +61,7 @@ export default function ClientIntakeTab() {
     setGenerating(true);
     setGenError(null);
     try {
-      const saveRes = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/save', {
+      const saveRes = await fetch(`${API}/intake/form/save`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ form_data: data }),
@@ -68,7 +69,7 @@ export default function ClientIntakeTab() {
       if (!saveRes.ok) throw new Error('Failed to save form data');
       const { session_id } = await saveRes.json();
 
-      const pdfRes = await fetch('https://dubai-realestate-production.up.railway.app/intake/form/generate-report', {
+      const pdfRes = await fetch(`${API}/intake/form/generate-report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id }),

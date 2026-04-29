@@ -1,4 +1,4 @@
-const BASE = "https://dubai-realestate-production.up.railway.app";
+const BASE = import.meta.env.VITE_API_URL || "https://dubai-realestate-production.up.railway.app";
 
 export async function fetchStats() {
   const r = await fetch(`${BASE}/listings/stats`);
