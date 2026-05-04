@@ -6,12 +6,15 @@ import OffplanTab from "./components/OffplanTab";
 import MatchTab from "./components/MatchTab";
 import LogsTab from "./components/LogsTab";
 import ClientIntakeTab from "./components/ClientIntakeTab";
+import IntroPage from "./components/intake/IntroPage";
 import { triggerScrape } from "./api";
 import "./index.css";
 
 const TABS = ["Off-Plan", "Match Clients", "Scrape Logs", "Client Intake"];
 
 export default function App() {
+  const isIntakePage = window.location.pathname === "/intake";
+  const [intakeStarted, setIntakeStarted] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [entered, setEntered] = useState(false);
   const [tab, setTab] = useState(0);
@@ -34,6 +37,15 @@ export default function App() {
     } finally {
       setScraping(false);
     }
+  }
+
+  if (isIntakePage) {
+    return (
+      <div style={{ minHeight: "100vh", background: "#F8FAFC" }}>
+        {!intakeStarted && <IntroPage onStart={() => setIntakeStarted(true)} />}
+        {intakeStarted && <ClientIntakeTab />}
+      </div>
+    );
   }
 
   if (!unlocked) {

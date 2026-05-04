@@ -4,8 +4,6 @@
   "outputDirectory": "frontend/dist",
   "framework": null,
   "rewrites": [
-    { "source": "/intake", "destination": "/intake.html" },
-    { "source": "/intake/(.*)", "destination": "/intake.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
