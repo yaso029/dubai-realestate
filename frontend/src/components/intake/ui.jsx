@@ -1,10 +1,10 @@
 // Shared design tokens and primitive UI components for the intake form
 
-export const NAVY = '#0A1628';
-export const GOLD = '#C9A84C';
-export const GOLD_LIGHT = '#FDF8ED';
-export const BORDER = '#E5E7EB';
-export const GREY = '#F8FAFC';
+export const NAVY = '#111111';
+export const GOLD = '#111111';
+export const GOLD_LIGHT = '#F5F5F5';
+export const BORDER = '#D1D5DB';
+export const GREY = '#F9F9F9';
 
 export function formatBudget(val) {
   if (val >= 1_000_000) {
@@ -49,10 +49,10 @@ export function NextBtn({ onClick, disabled, label = 'Continue →', fullWidth }
 export function ToggleCard({ icon, label, description, selected, onClick, small }) {
   return (
     <div onClick={onClick} style={{
-      border: `2px solid ${selected ? GOLD : BORDER}`,
+      border: `2px solid ${selected ? '#000' : BORDER}`,
       borderRadius: 14,
       padding: small ? '14px 16px' : '20px 24px',
-      background: selected ? NAVY : '#fff',
+      background: selected ? '#000' : '#fff',
       cursor: 'pointer',
       transition: 'all 0.15s',
       display: 'flex', flexDirection: 'column', gap: 6,
@@ -70,7 +70,7 @@ export function ToggleCard({ icon, label, description, selected, onClick, small 
       {selected && (
         <div style={{
           position: 'absolute', top: 10, right: 12,
-          color: GOLD, fontSize: 16, fontWeight: 900,
+          color: '#fff', fontSize: 16, fontWeight: 900,
         }}>✓</div>
       )}
     </div>
@@ -81,9 +81,9 @@ export function Pill({ label, selected, onClick }) {
   return (
     <button onClick={onClick} style={{
       padding: '10px 22px',
-      border: `2px solid ${selected ? GOLD : BORDER}`,
+      border: `2px solid ${selected ? '#000' : BORDER}`,
       borderRadius: 100,
-      background: selected ? NAVY : '#fff',
+      background: selected ? '#000' : '#fff',
       color: selected ? '#fff' : NAVY,
       fontSize: 14, fontWeight: 600, cursor: 'pointer',
       transition: 'all 0.15s', fontFamily: 'inherit',
@@ -99,9 +99,9 @@ export function YesNoToggle({ value, onChange }) {
       {['Yes', 'No'].map(opt => (
         <button key={opt} onClick={() => onChange(opt === 'Yes')} style={{
           padding: '10px 32px',
-          border: `2px solid ${value === (opt === 'Yes') ? GOLD : BORDER}`,
+          border: `2px solid ${value === (opt === 'Yes') ? '#000' : BORDER}`,
           borderRadius: 10,
-          background: value === (opt === 'Yes') ? NAVY : '#fff',
+          background: value === (opt === 'Yes') ? '#000' : '#fff',
           color: value === (opt === 'Yes') ? '#fff' : NAVY,
           fontSize: 14, fontWeight: 600, cursor: 'pointer',
           transition: 'all 0.15s', fontFamily: 'inherit',
